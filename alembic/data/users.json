@@ -1,0 +1,22 @@
+[
+  {
+    "age": 25,
+    "category": "programmer",
+    "gender": "male"
+  },
+  {
+    "age": 35,
+    "category": "cleaner",
+    "gender": "male"
+  },
+  {
+    "age": 45,
+    "category": "director",
+    "gender": "male"
+  },
+  {
+    "age": 40,
+    "category": "finance",
+    "gender": "female"
+  }
+]
