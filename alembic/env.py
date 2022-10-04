@@ -8,7 +8,7 @@ from sqlalchemy.ext.asyncio import AsyncEngine
 
 from alembic import context
 from db.models import user
-from db.db_setup import Base
+from db.db_setup import Base, ASYNC_SQLALCHEMY_DATABASE_URL
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -18,6 +18,7 @@ config = context.config
 # This line sets up loggers basically.
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
+config.set_main_option("sqlalchemy.url", ASYNC_SQLALCHEMY_DATABASE_URL)
 
 # add your model's MetaData object here
 # for 'autogenerate' support
