@@ -23,8 +23,13 @@ async def read_users(db: AsyncSession = Depends(async_get_db)):
     return db_users
 
 
-@router.post("/users", response_model=User)
+@router.post("/users", response_model=User, status_code=201)
 async def create_new_user(user: UserCreate, db: AsyncSession = Depends(async_get_db)):
     db_user = await create_user(db=db, user=user)
     return db_user
 
+
+@router.post("/users", response_model=User, status_code=201)
+async def create_new_user(user: UserCreate, db: AsyncSession = Depends(async_get_db)):
+    db_user = await create_user(db=db, user=user)
+    return db_user

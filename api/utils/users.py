@@ -5,7 +5,7 @@ from db.models.user import User
 from pydantic_schemas.user import UserCreate
 
 
-async def get_user(db: AsyncSession, user_id: int) -> User|None:
+async def get_user(db: AsyncSession, user_id: int) -> User | None:
     query = select(User).where(User.id == user_id)
     result = await db.execute(query)
     return result.scalar_one_or_none()
@@ -22,9 +22,3 @@ async def create_user(db: AsyncSession, user: UserCreate) -> User:
     db.add(db_user)
     await db.commit()
     return db_user
-
-    # db_user = User(age=user.age, category=user.category, gender=user.gender)
-    # db.add(db_user)
-    # db.commit()
-    # db.refresh(db_user)
-    # return db_user
